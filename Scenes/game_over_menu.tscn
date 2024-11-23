@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhgo3d5tfp6bq"]
+
+[ext_resource type="FontFile" uid="uid://c6cubg3wenj0b" path="res://Assets/MaldiniBold.ttf" id="1_rulrk"]
+[ext_resource type="Script" path="res://Scenes/game_over_menu.gd" id="1_v3nfv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvmkf"]
+bg_color = Color(0.501041, 0.577308, 0.897207, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.019591, 0.00873008, 0.00463719, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbh6u"]
+bg_color = Color(0.550794, 0.646291, 0.29326, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3i2r"]
+bg_color = Color(0.445748, 0.64395, 0.6335, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_v3nfv")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 300.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvmkf")
+
+[node name="GameOverLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 175.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.827578, 0.975333, 0.856282, 1)
+theme_override_fonts/font = ExtResource("1_rulrk")
+theme_override_font_sizes/font_size = 50
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 49.0
+offset_right = 118.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rulrk")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mbh6u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s3i2r")
+text = "Restart"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
